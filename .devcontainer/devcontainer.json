@@ -1,24 +1,31 @@
 {
-  "name": "Android Development",
-  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "name": "Android Development 2026",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
   "features": {
-    "ghcr.io/devcontainers/features/desktop-lite:1": {}
+    "ghcr.io/devcontainers/features/desktop-lite:1": {},
+    "ghcr.io/devcontainers/features/java:1": {
+      "version": "17",
+      "jdkDistro": "ms"
+    },
+    "ghcr.io/devcontainers-contrib/features/android-sdk:1": {
+      "version": "latest"
+    }
   },
   "customizations": {
     "vscode": {
       "extensions": [
         "vscjava.vscode-java-pack",
-        "ms-azuretools.vscode-docker",
-        "mathiasfrohlich.Kotlin"
+        "mathiasfrohlich.Kotlin",
+        "ms-azuretools.vscode-docker"
       ]
     }
   },
-  "forwardPorts": [5901, 6080],
+  "forwardPorts": [6080],
   "portsAttributes": {
     "6080": {
-      "label": "Browser VNC",
-      "onAutoForward": "silent"
+      "label": "Desktop View (VNC)",
+      "onAutoForward": "notify"
     }
   },
-  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y openjdk-17-jdk android-sdk"
+  "postCreateCommand": "sdkmanager --update && yes | sdkmanager --licenses"
 }
