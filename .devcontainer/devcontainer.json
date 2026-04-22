@@ -1,31 +1,23 @@
 {
-  "name": "Android Development 2026",
+  "name": "Android Studio Cloud",
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
   "features": {
     "ghcr.io/devcontainers/features/desktop-lite:1": {},
-    "ghcr.io/devcontainers/features/java:1": {
-      "version": "17",
-      "jdkDistro": "ms"
-    },
-    "ghcr.io/devcontainers-contrib/features/android-sdk:1": {
-      "version": "latest"
-    }
+    "ghcr.io/devcontainers/features/docker-in-docker:1": {}
   },
   "customizations": {
     "vscode": {
       "extensions": [
-        "vscjava.vscode-java-pack",
-        "mathiasfrohlich.Kotlin",
         "ms-azuretools.vscode-docker"
       ]
     }
   },
-  "forwardPorts": [6080],
+  "forwardPorts": [6080, 5901],
   "portsAttributes": {
     "6080": {
-      "label": "Desktop View (VNC)",
+      "label": "Android Studio Desktop",
       "onAutoForward": "notify"
     }
   },
-  "postCreateCommand": "sdkmanager --update && yes | sdkmanager --licenses"
+  "postCreateCommand": "echo 'Container Ready. Follow the steps below to launch Android Studio.'"
 }
