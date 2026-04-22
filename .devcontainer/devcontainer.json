@@ -1,0 +1,24 @@
+{
+  "name": "Android Development",
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "features": {
+    "ghcr.io/devcontainers/features/desktop-lite:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "vscjava.vscode-java-pack",
+        "ms-azuretools.vscode-docker",
+        "mathiasfrohlich.Kotlin"
+      ]
+    }
+  },
+  "forwardPorts": [5901, 6080],
+  "portsAttributes": {
+    "6080": {
+      "label": "Browser VNC",
+      "onAutoForward": "silent"
+    }
+  },
+  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y openjdk-17-jdk android-sdk"
+}
