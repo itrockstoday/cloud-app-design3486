@@ -1,10 +1,6 @@
 {
-  "name": "Android Studio Cloud",
-  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
-  "features": {
-    "ghcr.io/devcontainers/features/desktop-lite:1": {},
-    "ghcr.io/devcontainers/features/docker-in-docker:1": {}
-  },
+  "name": "Android Studio 2026",
+  "image": "kasmweb/core-ubuntu-focal:1.15.0",
   "customizations": {
     "vscode": {
       "extensions": [
@@ -12,12 +8,13 @@
       ]
     }
   },
-  "forwardPorts": [6080, 5901],
+  "forwardPorts": [6901],
   "portsAttributes": {
-    "6080": {
-      "label": "Android Studio Desktop",
+    "6901": {
+      "label": "Full Linux Desktop",
       "onAutoForward": "notify"
     }
   },
-  "postCreateCommand": "echo 'Container Ready. Follow the steps below to launch Android Studio.'"
+  "remoteUser": "kasm_user",
+  "postCreateCommand": "bash .devcontainer/install-studio.sh"
 }
